@@ -2,12 +2,11 @@ import os
 from dotenv import load_dotenv
 from supabase import create_client, Client
 
-# Şifre kasasını (.env) yüklüyoruz
 load_dotenv()
 
-# Anahtarları gizli dosyadan çekiyoruz
-SUPABASE_URL = os.getenv("SUPABASE_URL")
-SUPABASE_KEY = os.getenv("SUPABASE_KEY")
+# Yedekli tanımlama: Önce .env'e bakar, bulamazsa doğrudan yazar
+SUPABASE_URL = os.getenv("SUPABASE_URL") or "https://llbxzbyejbavcsfcpkvs.supabase.co"
+SUPABASE_KEY = os.getenv("SUPABASE_KEY") or "sb_publishable_4vAqXoxhJxpdnrGIpQGFuA_xMCy68PJ"
 
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
