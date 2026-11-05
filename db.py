@@ -4,9 +4,10 @@ from supabase import create_client, Client
 
 load_dotenv()
 
-# Yedekli tanımlama: Önce .env'e bakar, bulamazsa doğrudan yazar
-SUPABASE_URL = os.getenv("SUPABASE_URL") or "https://llbxzbyejbavcsfcpkvs.supabase.co"
-SUPABASE_KEY = os.getenv("SUPABASE_KEY") or "sb_publishable_4vAqXoxhJxpdnrGIpQGFuA_xMCy68PJ"
+SUPABASE_URL = os.environ["SUPABASE_URL"]
+SUPABASE_KEY = os.environ["SUPABASE_KEY"].strip()
+
+print("KEY CHECK:", SUPABASE_KEY[:3], len(SUPABASE_KEY))
 
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
@@ -17,14 +18,12 @@ def add_subscription(user_id: int, days: int, platforms: list):
         "platforms": platforms,
         "status": "active"
     }
-    response = supabase.table("users").upsert(data, on_conflict="user_id").execute()
-    return response
-    
+    return supabase.table("users").upsert(data, on_conflict="user_id").execute()
+
 def add_target(user_id: int, target_username: str, platform: str):
     data = {
         "user_id": user_id,
         "target_username": target_username,
         "platform": platform
     }
-    response = supabase.table("targets").upsert(data, on_conflict="user_id, target_username, platform").execute()
-    return response
+    return supabase.table("targets").upsert(data, on_conflict="user_id, target_username, platform").execute()
