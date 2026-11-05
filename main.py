@@ -382,7 +382,21 @@ async def main():
     # Scheduler: 10 dakikada bir otomatik çalışır
     scheduler.add_job(check_targets_job, 'interval', minutes=10)
     scheduler.start()
+    await start_web()
     await dp.start_polling(bot)
 
 if __name__ == "__main__":
     asyncio.run(main())
+
+from aiohttp import web
+
+async def health(request):
+    return web.Response(text="ok")
+
+async def start_web():
+    app = web.Application()
+    app.router.add_get("/", health)
+    runner = web.AppRunner(app)
+    await runner.setup()
+    site = web.TCPSite(runner, "0.0.0.0", int(os.getenv("PORT", 10000)))
+    await site.start()
