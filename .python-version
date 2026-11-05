@@ -1,0 +1,4 @@
+Set-Content -Path .python-version -Value "3.12.7" -Encoding ascii
+git add .
+git commit -m "python version"
+git push
