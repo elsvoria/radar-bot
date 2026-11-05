@@ -1,0 +1,16 @@
+{
+  "welcome": "Welcome to Radar! 🎯\nI can track all activities of your target accounts (public or private) in real-time. Please select the platforms you want to track:",
+  "platform_selected": "You selected: {platforms}. Click Next to continue.",
+  "next_btn": "Next ➡️",
+  "ask_link_ig": "🔗 Send the target's Instagram username or profile link:",
+  "ask_link_tk": "🔗 Send the target's TikTok username or profile link:",
+  "ask_link_tw": "🔗 Send the target's Twitter (X) username or profile link:",
+  "ask_link_wa": "📱 Send the target's WhatsApp phone number (with country code, e.g. +90...):",
+  "ask_duration": "⏳ How long should this target stay in the Radar?",
+  "ask_custom_days": "Enter the number of days you want to track (e.g. 12):",
+  "summary": "📊 **Summary:**\nTarget(s): {targets}\nPlatforms: {platforms}\nDuration: {days} Days\nPrice: {price} Stars ⭐️\n\nDo you confirm?",
+  "confirm_btn": "✅ Yes, Proceed to Payment",
+  "promo_btn": "🎟 I have a Promo Code",
+  "ask_promo": "Enter your promo code:",
+  "task_started": "🚀 Task Started! Activities for {targets} will be monitored for {days} days."
+}

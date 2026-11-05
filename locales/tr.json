@@ -1,0 +1,16 @@
+{
+  "welcome": "Radar'a Hoş Geldin! 🎯\nHedef hesapların (gizli veya açık fark etmeksizin) tüm hareketlerini anlık olarak takip edebilirim. Lütfen takip edilecek platformları seç:",
+  "platform_selected": "Seçilenler: {platforms}. Devam etmek için İleri'ye tıkla.",
+  "next_btn": "İleri ➡️",
+  "ask_link_ig": "🔗 Hedefin Instagram kullanıcı adını veya profil linkini gönder:",
+  "ask_link_tk": "🔗 Hedefin TikTok kullanıcı adını veya profil linkini gönder:",
+  "ask_link_tw": "🔗 Hedefin Twitter (X) kullanıcı adını veya profil linkini gönder:",
+  "ask_link_wa": "📱 Hedefin WhatsApp numarasını (+90... formatında) gönder:",
+  "ask_duration": "⏳ Bu hedef ne kadar süreyle Radar'da kalsın?",
+  "ask_custom_days": "Takip edilmesini istediğin gün sayısını yaz (Örnek: 12):",
+  "summary": "📊 **Özet:**\nHedef(ler): {targets}\nPlatformlar: {platforms}\nSüre: {days} Gün\nFiyat: {price} Yıldız ⭐️\n\nOnaylıyor musun?",
+  "confirm_btn": "✅ Evet, Ödemeye Geç",
+  "promo_btn": "🎟 Promosyon Kodum Var",
+  "ask_promo": "Promosyon kodunu gir:",
+  "task_started": "🚀 Görev Başlatıldı! {targets} için değişiklikler {days} gün boyunca kontrol edilecek."
+}
