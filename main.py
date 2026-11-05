@@ -8,6 +8,7 @@ from aiogram.filters import CommandStart, Command, StateFilter
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import StatesGroup, State
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
+from aiohttp import web
 
 import db
 import scraper_tk
@@ -377,19 +378,6 @@ async def check_targets_job():
                         print(f"Failed to send notification to {user_id}: {e}")
 
 # --- ANA ÇALIŞTIRMA DÖNGÜSÜ ---
-async def main():
-    print("Radar Bot is running with Scheduler...")
-    # Scheduler: 10 dakikada bir otomatik çalışır
-    scheduler.add_job(check_targets_job, 'interval', minutes=10)
-    scheduler.start()
-    await start_web()
-    await dp.start_polling(bot)
-
-if __name__ == "__main__":
-    asyncio.run(main())
-
-from aiohttp import web
-
 async def health(request):
     return web.Response(text="ok")
 
@@ -400,3 +388,13 @@ async def start_web():
     await runner.setup()
     site = web.TCPSite(runner, "0.0.0.0", int(os.getenv("PORT", 10000)))
     await site.start()
+
+async def main():
+    print("Radar Bot is running with Scheduler...")
+    await start_web()
+    scheduler.add_job(check_targets_job, 'interval', minutes=10)
+    scheduler.start()
+    await dp.start_polling(bot)
+
+if __name__ == "__main__":
+    asyncio.run(main())
